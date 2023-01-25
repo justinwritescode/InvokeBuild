@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageFile Include="./Invoke-Build.psm1" />
+    <PackageFile Include="./Invoke-Build.psm1" PackagePath="tools/Invoke-Build.psm1" />
   </ItemGroup>
 
 </Project>
