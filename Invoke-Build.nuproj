@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.Build.NoTargets">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Description>This package contains the Invoke-Build module.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageFile Include="./Invoke-Build.psm1" />
+  </ItemGroup>
+
+</Project>

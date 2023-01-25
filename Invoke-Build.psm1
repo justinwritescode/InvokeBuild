@@ -1,35 +1,22 @@
-<#PSScriptInfo
-
-.VERSION 0.0.1
-
-.GUID 270fdc85-f9a6-4285-9409-b1056558a54b
-
-.AUTHOR Justin Chase
-
-.COMPANYNAME JustinWritesCode
-
-.COPYRIGHT © 2023 Justin Chase <justin@jutinwritescode.com>, All Rights Reserved
-
-.TAGS
-
-.LICENSEURI https://opensource.org/lienses/MIT
-
-.PROJECTURI https://github.com/justinwritescode/InvokeBuild.git
-
-.ICONURI
-
-.EXTERNALMODULEDEPENDENCIES 
-
-.REQUIREDSCRIPTS ./Invoke-Build.ps1
-
-.EXTERNALSCRIPTDEPENDENCIES
-
-.RELEASENOTES
-
-.PRIVATEDATA
-
-#>
-
+@{
+    ModuleVersion      = '0.0.1'
+    GUID               = '270fdc85-f9a6-4285-9409-b1056558a54b'
+    Author             = 'Justin Chase'
+    CompanyName        = 'JustinWritesCode'
+    Copyright          = '© 2023 Justin Chase <justin@justinwritescode.com>, All Rights Reserved'
+    RequiredModules    = @()
+    CmdletsToExport    = @('Invoke-Build')
+    RequiredAssemblies = @()
+    NestedModules      = @()
+    TypesToProcess     = @()
+    FormatsToProcess   = @()
+    PrivateData        = @{
+        PSData = @{
+            ProjectUri = 'https://github.com/justinwritescode/InvokeBuild'
+            LicenseUri = 'https://opensource.org/lienses/MIT'
+        }
+    }
+}
 
 
 <#
@@ -62,7 +49,6 @@
         MSBuild, dotnet cli
 #>
 function Invoke-Build {
-    [CmdletBinding()]
     [Alias("Build", "Dotnet-Build", "ib")]
     param(
         # True if you want to push the build package to the Local feed; false otherwise. Defaults to true.
@@ -180,6 +166,7 @@ function Invoke-Build {
     if (!$NoClean) {
         Write-Verbose "Cleaning the output directory...";
         rm -rf ./bin;
+        rm -rf ./obj;
     }
 
     dotnet build `
@@ -191,3 +178,5 @@ function Invoke-Build {
     $($PushAzure ? "-t:PushAzure" : "") `
     $($PushNuGet ? "-t:PushNuGet" : "");
 }
+
+Export-ModuleMember Invoke-Build
