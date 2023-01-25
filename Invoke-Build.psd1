@@ -10,7 +10,7 @@
     PrivateData      = @{
         PSData = @{
             ProjectUri = 'https://github.com/justinwritescode/InvokeBuild'
-            LicenseUri = 'https://opensource.org/lienses/MIT'
+            License    = 'MIT'
             Tags       = @('build', 'dotnet', 'cli', 'nuget', 'package', 'push')
         }
     }
