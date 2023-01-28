@@ -1,0 +1,3 @@
+[submodule "Invoke-Build"]
+	path = Invoke-Build
+	url = https://hithub.com/justinwritescode/Invoke-Build.git
