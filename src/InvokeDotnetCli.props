@@ -1,0 +1,17 @@
+<!--
+ * InvokeBuild.props
+ * 
+ *   Created: 2023-01-31-10:12:00
+ *   Modified: 2023-01-31-10:12:01
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022-2023 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project>
+ <ItemGroup>
+      <Using Include="JustinWritesCode.PowerShell.PowerShellExtensions" Static="true" />
+ </ItemGroup>
+</Project>

@@ -1,0 +1,51 @@
+<!--
+ * InvokeBuild.csproj
+ * 
+ *   Created: 2023-01-26-04:57:56
+ *   Modified: 2023-01-31-01:54:20
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022-2023 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>InvokeDotnetCli</AssemblyName>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <SignAssembly>false</SignAssembly>
+    <OutputPath>$(MSBuildThisFileDirectory)/../bin</OutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PowerShellStandard.Library" PrivateAssets="All" />
+    <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration.V2" PrivateAssets="All" IncludeAssets="Build,Analyzers" />
+    <PackageReference Include="JustinWritesCode.PowerShell" PrivateAssets="All" />
+    <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" PrivateAssets="All" />
+    <PackageReference Include="JustinWritesCode.Enumerations.Abstractions" PrivateAssets="All" />
+    <PackageReference Include="JustinWritesCode.Abstractions" PrivateAssets="All" />
+    <PackageReference Include="JustinWritesCode.MSBuild.Extensions" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Build" />
+    <PackageReference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Using Include="System.Linq" />
+    <!-- <PackageReference Include="System.Collections.Concurrent" /> -->
+    <!-- <PackageReference Include="System.Runtime" CopyLocal="true" /> -->
+    <!-- <Reference Include="System.Runtime" CopyLocal="true" /> -->
+    <!-- <PackageReference Include="System.Management.Automation" VersionOverride="7.2.7" /> -->
+  </ItemGroup> 
+
+  <Target Name="RemoveConflictingReferences" BeforeTargets="CoreCompile"> 
+    <ItemGroup>
+      <Reference Remove="System.Collections.Concurrent" />
+      <Using Imclude="JustinWritesCode.PowerShell.PowerShellExtensions" Static="true" />
+    </ItemGroup>
+  </Target>
+
+</Project>
